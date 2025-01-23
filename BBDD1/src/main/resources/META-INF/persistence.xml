@@ -1,0 +1,24 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="RetakeProject">
+        <class>model.hibernate.Appointment</class>
+        <class>model.hibernate.Credential</class>
+        <class>model.hibernate.Doctor</class>
+        <class>model.hibernate.MedicalRecord</class>
+        <class>model.hibernate.Patient</class>
+        <class>model.hibernate.Payment</class>
+        <class>model.hibernate.Prescribe</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://URL/CarlosHernandez_Hospital"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="jakarta.persistence.jdbc.user" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

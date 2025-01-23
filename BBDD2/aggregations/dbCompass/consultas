@@ -1,0 +1,276 @@
+[
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$orders"
+      }
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$orders.order_items"
+      }
+  },
+  {
+    $lookup:
+      /**
+       * from: The target collection.
+       * localField: The local join field.
+       * foreignField: The target join field.
+       * as: The name for the results.
+       * pipeline: Optional pipeline to run on the foreign collection.
+       * let: Optional variables to use in the pipeline field stages.
+       */
+      {
+        from: "menu_items",
+        localField:
+          "orders.order_items.menu_item_id",
+        foreignField: "_id",
+        as: "menu_item"
+      }
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$menu_item"
+      }
+  },
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: "$orders.order_date",
+        total_price: {
+          $sum: {
+            $multiply: [
+              "$orders.order_items.quantity",
+              "$menu_item.price"
+            ]
+          }
+        }
+      }
+  }
+]
+
+
+
+
+
+[
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$orders"
+      }
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$orders.order_items"
+      }
+  },
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: "$orders.order_items.menu_item_id",
+        totalAsked: {
+          $sum: "$orders.order_items.quantity"
+        }
+      }
+  },
+  {
+    $sort:
+      /**
+       * Provide any number of field/order pairs.
+       */
+      {
+        totalAsked: -1
+      }
+  },
+  {
+    $limit:
+      /**
+       * Provide the number of documents to limit.
+       */
+      1
+  }
+]
+
+
+
+
+
+[
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$orders"
+      }
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$orders.order_items"
+      }
+  },
+  {
+    $lookup:
+      /**
+       * from: The target collection.
+       * localField: The local join field.
+       * foreignField: The target join field.
+       * as: The name for the results.
+       * pipeline: Optional pipeline to run on the foreign collection.
+       * let: Optional variables to use in the pipeline field stages.
+       */
+      {
+        from: "menu_items",
+        localField:
+          "orders.order_items.menu_item_id",
+        foreignField: "_id",
+        as: "menu_item"
+      }
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$menu_item"
+      }
+  },
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: "$first_name",
+        // Agrupamos por el ID del cliente
+        total: {
+          $sum: {
+            // Sumamos el precio de cada ítem de pedido
+            $multiply: [
+              "$orders.order_items.quantity",
+              "$menu_item.price"
+            ]
+          }
+        }
+      }
+  },
+  {
+    $sort:
+      /**
+       * Provide any number of field/order pairs.
+       */
+      {
+        total: -1
+      }
+  },
+  {
+    $limit:
+      /**
+       * Provide the number of documents to limit.
+       */
+      1
+  },
+  {
+    $project:
+      /**
+       * specifications: The fields to
+       *   include or exclude.
+       */
+      {
+        total: 0
+      }
+  }
+]
+
+
+
+
+
+
+[
+  {
+    $unwind: {
+      path: "$orders"
+    }
+  },
+  {
+    $addFields:
+      /**
+       * newField: The new field name.
+       * expression: The new field expression.
+       */
+      {
+        nItems: {
+          $size: "$orders.order_items"
+        }
+      }
+  },
+  {
+    $project:
+      /**
+       * specifications: The fields to
+       *   include or exclude.
+       */
+      {
+        nItems: 1
+      }
+  }
+]

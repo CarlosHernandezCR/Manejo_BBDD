@@ -1,0 +1,4 @@
+doctors=data/txt/doctors.csv
+patients=data/txt/patients.csv
+medications=data/txt/medications.csv
+medicalRecords=data/txt/medicalRecords.csv

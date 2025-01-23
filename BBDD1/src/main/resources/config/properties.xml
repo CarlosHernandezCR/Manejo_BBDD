@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="user">root</entry>
+    <entry key="password">quevedo2dam</entry>
+    <entry key="patients">data/xml/patients.xml</entry>
+    <entry key="medicalRecords">data/xml/medicalRecords.xml</entry>
+    <entry key="urlDB">jdbc:mysql://CarlosHernandez_Hospital</entry>
+    <entry key="driver">com.mysql.cj.jdbc.Driver</entry>
+</properties>

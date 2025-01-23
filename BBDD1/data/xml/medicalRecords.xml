@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MedicalRecords>
+    <medicalRecord>
+        <nameDoctor>Pablo</nameDoctor>
+        <diagnosis>Hypertension</diagnosis>
+        <prescribe>
+            <dosage>1 tablet every 6 hours</dosage>
+            <name>Aspirin</name>
+        </prescribe>
+        <prescribe>
+            <dosage>1 pill every 8 hours</dosage>
+            <name>Paracetamol</name>
+        </prescribe>
+        <prescribe>
+            <dosage>1 pill every 6 hours</dosage>
+            <name>Ibuprofeno</name>
+        </prescribe>
+    </medicalRecord>
+    <medicalRecord>
+        <nameDoctor>Victor</nameDoctor>
+        <diagnosis>Flu</diagnosis>
+        <prescribe>
+            <dosage>2 teaspoons every 8 hours</dosage>
+            <name>Cough Syrup</name>
+        </prescribe>
+        <prescribe>
+            <dosage>1 pill every 4 hours</dosage>
+            <name>Strepsils</name>
+        </prescribe>
+    </medicalRecord>
+</MedicalRecords>

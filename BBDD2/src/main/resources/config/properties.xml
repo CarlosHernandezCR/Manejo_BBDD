@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="username"></entry>
+    <entry key="password"></entry>
+    <entry key="patients">data/xml/patients.xml</entry>
+    <entry key="medicalRecords">data/xml/medicalRecords.xml</entry>
+    <entry key="urlDB"></entry>
+    <entry key="user">root</entry>
+    <entry key="password">2dam</entry>
+    <entry key="driver">com.mysql.cj.jdbc.Driver</entry>
+
+    <entry key="urlMongo"></entry>
+    <entry key="databaseName">Hospital</entry>
+    <entry key="collection">Patients</entry>
+    <entry key="collection2">Doctors</entry>
+</properties>
