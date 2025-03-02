@@ -16,15 +16,6 @@ import service.PrescribeService;
 import java.util.List;
 import java.util.Scanner;
 
-//Using the Hospital database, implement the following functionality with Spring template:
-//1. Show the medications of each medical record
-//2. Add a new medication to the newest medical record of a given patient.
-//3. Modify the dosage of a prescribed medication
-//4. Backup all medical records older than the current year into an XML file, including the
-//information about the medications, and delete them from the database.
-//5. Add some of the queries we have been working on:
-// Show the name of the patients with prescribed with more than 400mg of Ibuprofen
-// Show the name and the number of medications of each patient
 public class Unit2SpringExercises {
     public static void main(String[] args) {
         int option = 0;
