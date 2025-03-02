@@ -5,6 +5,6 @@ Formas de manejar diferentes bases de datos con diferentes procedimientos
 2. [XML](BBDD1/src/main/java/ui/Unit1XMLExercises.java)
 3. [JDBC](BBDD1/src/main/java/ui/Unit2JDBCExercises.java)
 4. [Spring](BBDD1/src/main/java/ui/Unit2SpringExercises.java)
-5. [Hibernate](BBDD2/src/java/main/ui/Unit3HibernateExercises.java)
-6. [Mongo](BBDD2/src/java/main/ui/Unit4MongoExercises.java)
+5. [Hibernate](BBDD2/src/main/java/ui/Unit3HibernateExercises.java)
+6. [Mongo](BBDD2/src/main/java/ui/Unit4MongoExercises.java)
 
